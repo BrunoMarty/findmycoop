@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+<<<<<<< HEAD
 ## 2.6.1 - 2017-01-16
 
 ### Added
@@ -34,6 +35,8 @@ All notable changes to this project will be documented in this file, in reverse 
   header values are encoded, ensuring that it allows the first word to be of
   arbitrary length.
 
+=======
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
 ## 2.6.0 - 2016-04-20
 
 ### Added

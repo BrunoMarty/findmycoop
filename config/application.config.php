@@ -2,10 +2,14 @@
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
+<<<<<<< HEAD
   
         'Forum',
         'DoctrineModule',
         'DoctrineORMModule',
+=======
+        'Forum',
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
    
      
     ),

@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 namespace Forum;
+=======
+
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
 return array(
     'router' => array(
         'routes' => array(
@@ -14,6 +18,7 @@ return array(
                     ),
                 ),
             ),
+<<<<<<< HEAD
             'membre' => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -40,6 +45,8 @@ return array(
                     ),
                       ),
     ),
+=======
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             'projet' => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -50,8 +57,27 @@ return array(
                         'action'        => 'projet',
                     ),
                 ),
+<<<<<<< HEAD
             ),
 
+=======
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:controller[/:action]]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             'bar' => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -62,6 +88,7 @@ return array(
                         'action'        => 'bar',
                     ),
                 ),
+<<<<<<< HEAD
             ),
             'event' => array(
                 'type'    => 'Zend\Mvc\Router\Http\Literal',
@@ -77,11 +104,33 @@ return array(
  
         ),
     ),
+=======
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'default' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:controller[/:action]]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
+ 
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
     'service_manager' => array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
         ),
     ),
+<<<<<<< HEAD
     // Doctrine config
    'doctrine' => array(
        'driver' => array(
@@ -98,6 +147,8 @@ return array(
        )
    ),
 
+=======
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
     'translator' => array(
         'locale' => 'en_US',
         'translation_file_patterns' => array(
@@ -112,11 +163,15 @@ return array(
         'invokables' => array(
             'Forum\Controller\Index' => 'Forum\Controller\IndexController',
             'Forum\Controller\Projet' => 'Forum\Controller\ProjetController',
+<<<<<<< HEAD
            'Forum\Controller\Membre' => 'Forum\Controller\MembreController',
             'Forum\Controller\Detail' => 'Forum\Controller\DetailController',
             'Forum\Controller\Bar' => 'Forum\Controller\BarController',
             'Forum\Controller\Event' => 'Forum\Controller\EventController',
            
+=======
+            'Forum\Controller\Bar' => 'Forum\Controller\BarController'
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
         ),
      
     ),

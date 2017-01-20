@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+<<<<<<< HEAD
 ## 1.4.0 - TBD
 
 ### Added
@@ -59,6 +60,8 @@ All notable changes to this project will be documented in this file, in reverse 
   with the `SapiStreamEmitter` consuming too much memory when producing output
   for readable bodies.
 
+=======
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
 ## 1.3.8 - 2017-01-05
 
 ### Added

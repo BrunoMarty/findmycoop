@@ -9,4 +9,8 @@ MIME support.
 
 
 - File issues at https://github.com/zendframework/zend-mime/issues
+<<<<<<< HEAD
 - Documentation is at https://zendframework.github.io/zend-mime/
+=======
+- Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-mime
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf

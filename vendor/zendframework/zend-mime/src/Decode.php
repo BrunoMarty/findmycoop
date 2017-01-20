@@ -44,18 +44,30 @@ class Decode
         $start = $p + 3 + strlen($boundary);
 
         while (($p = strpos($body, '--' . $boundary . "\n", $start)) !== false) {
+<<<<<<< HEAD
             $res[] = substr($body, $start, $p - $start);
+=======
+            $res[] = substr($body, $start, $p-$start);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             $start = $p + 3 + strlen($boundary);
         }
 
         // no more parts, find end boundary
         $p = strpos($body, '--' . $boundary . '--', $start);
+<<<<<<< HEAD
         if ($p === false) {
+=======
+        if ($p===false) {
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             throw new Exception\RuntimeException('Not a valid Mime Message: End Missing');
         }
 
         // the remaining part also needs to be parsed:
+<<<<<<< HEAD
         $res[] = substr($body, $start, $p - $start);
+=======
+        $res[] = substr($body, $start, $p-$start);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
         return $res;
     }
 
@@ -107,7 +119,11 @@ class Decode
         // check for valid header at first line
         $firstlinePos = strpos($message, "\n");
         $firstline = $firstlinePos === false ? $message : substr($message, 0, $firstlinePos);
+<<<<<<< HEAD
         if (! preg_match('%^[^\s]+[^:]*:%', $firstline)) {
+=======
+        if (!preg_match('%^[^\s]+[^:]*:%', $firstline)) {
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             $headers = [];
             // TODO: we're ignoring \r for now - is this function fast enough and is it safe to assume noone needs \r?
             $body = str_replace(["\r", "\n"], ['', $EOL], $message);
@@ -115,10 +131,17 @@ class Decode
         }
 
         // see @ZF2-372, pops the first line off a message if it doesn't contain a header
+<<<<<<< HEAD
         if (! $strict) {
             $parts = explode(':', $firstline, 2);
             if (count($parts) != 2) {
                 $message = substr($message, strpos($message, $EOL) + 1);
+=======
+        if (!$strict) {
+            $parts = explode(':', $firstline, 2);
+            if (count($parts) != 2) {
+                $message = substr($message, strpos($message, $EOL)+1);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             }
         }
 
@@ -134,7 +157,11 @@ class Decode
             list($headers, $body) = explode("\n\n", $message, 2);
         // at last resort find anything that looks like a new line
         } else {
+<<<<<<< HEAD
             ErrorHandler::start(E_NOTICE | E_WARNING);
+=======
+            ErrorHandler::start(E_NOTICE|E_WARNING);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             list($headers, $body) = preg_split("%([\r\n]+)\\1%U", $message, 2);
             ErrorHandler::stop();
         }
@@ -175,7 +202,11 @@ class Decode
         }
 
         $field = $firstName . '=' . $field;
+<<<<<<< HEAD
         if (! preg_match_all('%([^=\s]+)\s*=\s*("[^"]+"|[^;]+)(;\s*|$)%', $field, $matches)) {
+=======
+        if (!preg_match_all('%([^=\s]+)\s*=\s*("[^"]+"|[^;]+)(;\s*|$)%', $field, $matches)) {
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             throw new Exception\RuntimeException('not a valid header field');
         }
 

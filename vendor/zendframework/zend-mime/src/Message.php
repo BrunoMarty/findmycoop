@@ -17,7 +17,11 @@ class Message
     /**
      * Returns the list of all Zend\Mime\Part in the message
      *
+<<<<<<< HEAD
      * @return Part[]
+=======
+     * @return array of \Zend\Mime\Part
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
      */
     public function getParts()
     {
@@ -38,6 +42,7 @@ class Message
      * Append a new Zend\Mime\Part to the current message
      *
      * @param \Zend\Mime\Part $part
+<<<<<<< HEAD
      * @throws Exception\InvalidArgumentException
      */
     public function addPart(Part $part)
@@ -51,6 +56,14 @@ class Message
             }
         }
 
+=======
+     */
+    public function addPart(Part $part)
+    {
+        /**
+         * @todo check for duplicate object handle
+         */
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
         $this->parts[] = $part;
     }
 
@@ -112,7 +125,11 @@ class Message
      */
     public function generateMessage($EOL = Mime::LINEEND)
     {
+<<<<<<< HEAD
         if (! $this->isMultiPart()) {
+=======
+        if (!$this->isMultiPart()) {
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             if (empty($this->parts)) {
                 return '';
             }
@@ -183,10 +200,15 @@ class Message
      * @throws Exception\RuntimeException
      * @return array
      */
+<<<<<<< HEAD
     // @codingStandardsIgnoreStart
     protected static function _disassembleMime($body, $boundary)
     {
         // @codingStandardsIgnoreEnd
+=======
+    protected static function _disassembleMime($body, $boundary)
+    {
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
         $start  = 0;
         $res    = [];
         // find every mime part limiter and cut out the
@@ -202,18 +224,30 @@ class Message
         $start = $p + 3 + strlen($boundary);
 
         while (($p = strpos($body, '--' . $boundary . "\n", $start)) !== false) {
+<<<<<<< HEAD
             $res[] = substr($body, $start, $p - $start);
+=======
+            $res[] = substr($body, $start, $p-$start);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             $start = $p + 3 + strlen($boundary);
         }
 
         // no more parts, find end boundary
         $p = strpos($body, '--' . $boundary . '--', $start);
+<<<<<<< HEAD
         if ($p === false) {
+=======
+        if ($p===false) {
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
             throw new Exception\RuntimeException('Not a valid Mime Message: End Missing');
         }
 
         // the remaining part also needs to be parsed:
+<<<<<<< HEAD
         $res[] = substr($body, $start, $p - $start);
+=======
+        $res[] = substr($body, $start, $p-$start);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
         return $res;
     }
 
@@ -222,6 +256,7 @@ class Message
      * all the MIME parts set according to the given string
      *
      * @param string $message
+<<<<<<< HEAD
      * @param string $boundary Multipart boundary; if omitted, $message will be
      *     treated as a single part.
      * @param string $EOL EOL string; defaults to {@link Zend\Mime\Mime::LINEEND}
@@ -239,6 +274,16 @@ class Message
                 'body'   => $body,
             ]];
         }
+=======
+     * @param string $boundary
+     * @param string $EOL EOL string; defaults to {@link Zend\Mime\Mime::LINEEND}
+     * @throws Exception\RuntimeException
+     * @return \Zend\Mime\Message
+     */
+    public static function createFromMessage($message, $boundary, $EOL = Mime::LINEEND)
+    {
+        $parts = Decode::splitMessageStruct($message, $boundary, $EOL);
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
 
         $res = new static();
         foreach ($parts as $part) {
