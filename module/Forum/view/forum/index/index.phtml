@@ -1,0 +1,9 @@
+<div class="col-md-9 corps">
+
+<?php foreach ($site as $page) : ?>
+
+    <h1><?php echo $this->escapeHtml($page->getSujet());?></h1><br>
+    <br><p><?php echo $this->escapeHtml($page->getContenu());?></p>
+
+<?php endforeach; ?>
+</div>
