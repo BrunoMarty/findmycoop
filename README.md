@@ -1,5 +1,29 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+Projet : findMyCoop
+
+FindMyCoop est un site polyvalent de participation pour des projets, il vous permettra de trouver de l'aide,  ou si le coeur vous en dit, d'aider pour des projets interessant . Le site se divise en deux parties :
+
+        => la partie projet 
+
+Outils pour modifier et ajouter vos differents projets . Vous pouvez ajouter de nouveaux membres à vos   projet et leur permettre de participer. Vous pouvez aussi les rejoindre et contribuer à un projet intérressant qui n'aurait pas aboutis .
+
+        => la partie forum
+
+Un forum d'entre-aide et de détente,pour parler avec d'autres réalisateurs de projet et ainsi   finaliser le votre.
+
+Caracteristique
+
+FindMyCoop est un site pensé par Loïc Derrieux, puis repris par l'équipe de développement de l'école Beweb   à Béziers (Sidobre Morgane,Marty Bruno et Duban Rémi)en un mois .
+
+Logiciels utilisés : Netbeans 8.2, Zend 2.5.1 avec Doctrine, Github, Trello, phpmyAdmin .
+
+=======
+**Projet : findMyCoop**
+=======
 ZendSkeletonApplication
 =======================
+>>>>>>> 565e5af13d893d3a4364b8b36613e15a2c16d360
 
 Introduction
 ------------
@@ -33,8 +57,13 @@ available.)
 Another alternative for downloading the project is to grab it via `curl`, and
 then pass it to `tar`:
 
+<<<<<<< HEAD
+	Logiciels utilisés : Netbeans 8.2, Zend 2.5.1, Github, Trello, phpmyAdmin .
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+=======
     cd my/project/dir
     curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+>>>>>>> 565e5af13d893d3a4364b8b36613e15a2c16d360
 
 You would then invoke `composer` to install dependencies per the previous
 example.
