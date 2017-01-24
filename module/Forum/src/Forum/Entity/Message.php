@@ -45,14 +45,19 @@ class Message
     /**
      * @var integer
      *
+<<<<<<< HEAD
      * @ORM\ManyToOne(targetEntity="Membre")
      * @ORM\JoinColumn(name="ID_Exp", referencedColumnName="ID_Membre")
+=======
+     * @ORM\Column(name="ID_Exp", type="integer", nullable=false)
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
      */
     private $idExp;
 
     /**
      * @var integer
      *
+<<<<<<< HEAD
      * @ORM\ManyToOne(targetEntity="Membre")
      * @ORM\JoinColumn(name="ID_Dest", referencedColumnName="ID_Membre")
      */
@@ -136,6 +141,12 @@ class Message
         $this->lu = $lu;
     }
 
+=======
+     * @ORM\Column(name="ID_Dest", type="integer", nullable=false)
+     */
+    private $idDest;
+
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 
 }
 

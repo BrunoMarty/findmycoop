@@ -6,9 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'ZfcAdmin' => array($vendorDir . '/zf-commons/zfc-admin/src'),
     'ZendXml\\' => array($vendorDir . '/zendframework/zendxml/library'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+=======
+    'ZendXml\\' => array($vendorDir . '/zendframework/zendxml/library'),
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
+<<<<<<< HEAD
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
@@ -16,4 +22,9 @@ return array(
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'DoctrineORMModule\\' => array($vendorDir . '/doctrine/doctrine-orm-module/src'),
     'DoctrineModule\\' => array($vendorDir . '/doctrine/doctrine-module/src'),
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 );

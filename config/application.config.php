@@ -1,6 +1,7 @@
 <?php
 return array(
     // This should be an array of module namespaces used in the application.
+<<<<<<< HEAD
     'modules' => array(  
         'Forum',
         'DoctrineModule',
@@ -9,6 +10,19 @@ return array(
         'Admin',
         'User',
 
+=======
+    'modules' => array(
+<<<<<<< HEAD
+  
+        'Forum',
+        'DoctrineModule',
+        'DoctrineORMModule',
+=======
+        'Forum',
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+   
+     
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     ),
 
     // These are various options for the listeners attached to the ModuleManager

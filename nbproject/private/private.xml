@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
@@ -7,6 +8,11 @@
             <file>file:/var/www/html/findmycoop/module/User/src/User/Controller/MembreController.php</file>
             <file>file:/var/www/html/findmycoop/module/User/view/user/membre/setting.phtml</file>
             <file>file:/var/www/html/findmycoop/module/User/src/User/Form/UserForm.php</file>
+=======
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/html/findmycoop/module/Forum/config/module.config.php</file>
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         </group>
     </open-files>
 </project-private>

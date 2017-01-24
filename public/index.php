@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 <?php define('REQUEST_MICROTIME', microtime(true));
+=======
+<<<<<<< HEAD
+<?php define('REQUEST_MICROTIME', microtime(true));
+=======
+<?php
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 /**
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.

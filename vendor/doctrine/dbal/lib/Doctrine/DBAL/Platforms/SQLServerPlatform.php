@@ -43,6 +43,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      */
+<<<<<<< HEAD
     public function getCurrentDateSQL()
     {
         return $this->getConvertExpression('date', 'GETDATE()');
@@ -72,6 +73,8 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritdoc}
      */
+=======
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     protected function getDateArithmeticIntervalExpression($date, $operator, $interval, $unit)
     {
         $factorClause = '';

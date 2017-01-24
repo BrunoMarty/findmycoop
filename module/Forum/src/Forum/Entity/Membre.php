@@ -3,16 +3,26 @@
 namespace Forum\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
 use Doctrine\Common\Collections\Collection;
+=======
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 
 /**
  * Membre
  *
+<<<<<<< HEAD
  * @ORM\Table(name="Membre")
  * @ORM\Entity
  */
 class Membre {
 
+=======
+/** @ORM\Table(name="Membre") 
+ * @ORM\Entity(repositoryClass="Forum\Repository\Repository") */
+class Membre
+{
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     /**
      * @var integer
      *
@@ -78,6 +88,7 @@ class Membre {
      */
     private $admin;
 
+<<<<<<< HEAD
     /**
      * @var integer $codePostal
      *
@@ -91,6 +102,20 @@ class Membre {
      *
      * @ORM\Column(name="Email", type="string", length=50, nullable=false)
      */
+=======
+   /**
+    * @var integer
+    *
+    * @ORM\Column(name="Code_Postal", type="integer", nullable=true)
+    */
+   private $codePostal;
+
+   /**
+    * @var string
+    *
+    * @ORM\Column(name="Email", type="string", length=50, nullable=false)
+    */
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     private $email;
 
     function getIdMembre() {
@@ -181,4 +206,10 @@ class Membre {
         $this->email = $email;
     }
 
+<<<<<<< HEAD
 }
+=======
+
+}
+
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5

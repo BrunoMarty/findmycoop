@@ -9,9 +9,19 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.3.3",
+<<<<<<< HEAD
         "zendframework/zendframework": "~2.5.1",
         "doctrine/doctrine-orm-module": "*",
      "zendframework/zend-developer-tools": "dev-master",
      "zf-commons/zfc-admin": "dev-master"
+=======
+<<<<<<< HEAD
+        "zendframework/zendframework": "~2.5.1",
+        "doctrine/doctrine-orm-module": "*",
+     "zendframework/zend-developer-tools": "dev-master"
+=======
+        "zendframework/zendframework": "~2.5.1"
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     }
 }

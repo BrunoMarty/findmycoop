@@ -580,6 +580,7 @@ class Connection implements DriverConnection
             throw InvalidArgumentException::fromEmptyCriteria();
         }
 
+<<<<<<< HEAD
         $columnList = array();
         $criteria = array();
         $paramValues = array();
@@ -588,12 +589,25 @@ class Connection implements DriverConnection
             $columnList[] = $columnName;
             $criteria[] = $columnName . ' = ?';
             $paramValues[] = $value;
+=======
+        $this->connect();
+
+        $criteria = array();
+
+        foreach (array_keys($identifier) as $columnName) {
+            $criteria[] = $columnName . ' = ?';
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         }
 
         return $this->executeUpdate(
             'DELETE FROM ' . $tableExpression . ' WHERE ' . implode(' AND ', $criteria),
+<<<<<<< HEAD
             $paramValues,
             is_string(key($types)) ? $this->extractTypeValues($columnList, $types) : $types
+=======
+            array_values($identifier),
+            is_string(key($types)) ? $this->extractTypeValues($identifier, $types) : $types
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         );
     }
 
@@ -651,6 +665,7 @@ class Connection implements DriverConnection
      */
     public function update($tableExpression, array $data, array $identifier, array $types = array())
     {
+<<<<<<< HEAD
         $columnList = array();
         $set = array();
         $criteria = array();
@@ -676,6 +691,26 @@ class Connection implements DriverConnection
                 . ' WHERE ' . implode(' AND ', $criteria);
 
         return $this->executeUpdate($sql, $paramValues, $types);
+=======
+        $this->connect();
+        $set = array();
+
+        foreach ($data as $columnName => $value) {
+            $set[] = $columnName . ' = ?';
+        }
+
+        if (is_string(key($types))) {
+            $types = $this->extractTypeValues(array_merge($data, $identifier), $types);
+        }
+
+        $params = array_merge(array_values($data), array_values($identifier));
+
+        $sql  = 'UPDATE ' . $tableExpression . ' SET ' . implode(', ', $set)
+                . ' WHERE ' . implode(' = ? AND ', array_keys($identifier))
+                . ' = ?';
+
+        return $this->executeUpdate($sql, $params, $types);
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     }
 
     /**
@@ -697,6 +732,7 @@ class Connection implements DriverConnection
             return $this->executeUpdate('INSERT INTO ' . $tableExpression . ' ()' . ' VALUES ()');
         }
 
+<<<<<<< HEAD
         $columnList = array();
         $paramPlaceholders = array();
         $paramValues = array();
@@ -712,17 +748,31 @@ class Connection implements DriverConnection
             ' VALUES (' . implode(', ', $paramPlaceholders) . ')',
             $paramValues,
             is_string(key($types)) ? $this->extractTypeValues($columnList, $types) : $types
+=======
+        return $this->executeUpdate(
+            'INSERT INTO ' . $tableExpression . ' (' . implode(', ', array_keys($data)) . ')' .
+            ' VALUES (' . implode(', ', array_fill(0, count($data), '?')) . ')',
+            array_values($data),
+            is_string(key($types)) ? $this->extractTypeValues($data, $types) : $types
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         );
     }
 
     /**
+<<<<<<< HEAD
      * Extract ordered type list from an ordered column list and type map.
      *
      * @param array $columnList
+=======
+     * Extract ordered type list from two associate key lists of data and types.
+     *
+     * @param array $data
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
      * @param array $types
      *
      * @return array
      */
+<<<<<<< HEAD
     private function extractTypeValues(array $columnList, array $types)
     {
         $typeValues = array();
@@ -730,6 +780,15 @@ class Connection implements DriverConnection
         foreach ($columnList as $columnIndex => $columnName) {
             $typeValues[] = isset($types[$columnName])
                 ? $types[$columnName]
+=======
+    private function extractTypeValues(array $data, array $types)
+    {
+        $typeValues = array();
+
+        foreach ($data as $k => $_) {
+            $typeValues[] = isset($types[$k])
+                ? $types[$k]
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
                 : \PDO::PARAM_STR;
         }
 

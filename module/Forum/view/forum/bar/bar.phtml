@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <?php foreach ($bar as  $cat) : 
      
      if(empty($cat->getIdParent()))
@@ -15,4 +16,18 @@
   endforeach;
  ?> 
      <br>            
+=======
+
+<<<<<<< HEAD
+ <?php foreach ($bar as $scat) : ?>
+     
+     <p><?php echo $this->escapeHtml($scat->getNomScat());?></p>
+       <p><?php echo $this->escapeHtml($scat->getIdCat());?></p>
+=======
+ <?php foreach ($bar as $cat) : ?>
+     
+     <p><?php echo $this->escapeHtml($cat->nameS);?></p>
+>>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
  <?php endforeach; ?>

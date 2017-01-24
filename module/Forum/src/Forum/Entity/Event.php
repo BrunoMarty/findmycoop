@@ -50,7 +50,11 @@ class Event
         return $this->nomEvent;
     }
 
+<<<<<<< HEAD
     function getDateEvent(): \DateTime {
+=======
+    function getDateEvent() {
+>>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         return $this->dateEvent;
     }
 
