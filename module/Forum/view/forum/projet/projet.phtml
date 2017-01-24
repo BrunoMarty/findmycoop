@@ -1,0 +1,26 @@
+
+    <?php foreach ($projet as  $cat) : 
+     
+     if(empty($cat->getIdParent())){
+     echo $cat -> getNomCat();}
+ 
+     foreach ($projet as  $cat1):
+
+
+
+    if ($objet = $cat1-> getIdParent()) {
+       if($objet -> getIdCat() == $cat -> getIdCat()){
+        echo $cat1 -> getNomCat();
+       }
+    }
+  endforeach;
+ ?>
+ 
+     <br>
+ 
+
+    
+    
+      
+
+ <?php endforeach; ?>

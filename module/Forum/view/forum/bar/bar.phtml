@@ -1,0 +1,18 @@
+ <?php foreach ($bar as  $cat) : 
+     
+     if(empty($cat->getIdParent()))
+         echo $cat -> getNomCat() ; ?> <br>
+    <?php 
+    foreach ($bar as  $cat1):
+    if ($objet = $cat1-> getIdParent()) {
+       if($objet -> getIdCat() == $cat -> getIdCat()){
+        echo $cat1 -> getNomCat(); 
+    ?> 
+         <br>
+    <?php
+       }
+    }
+  endforeach;
+ ?> 
+     <br>            
+ <?php endforeach; ?>
