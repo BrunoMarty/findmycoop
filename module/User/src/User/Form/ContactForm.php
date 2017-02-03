@@ -14,14 +14,19 @@
                 'name' => 'id', // Nom du champ
                 'type' => 'Hidden',      // Type du champ
             ));
-            
+            if($dest -> getIdExp()){
+                $t = $dest -> getIdExp() -> getNom();
+            }
+            else {
+                $t = null;
+            }
             // Le champs name, de type Text
             $this->add(array(
                 'name' => 'dest',       // Nom du champ
                 'type' => 'Text',       // Type du champ
                 'attributes' => array(
                     'id'    => 'dest',   // Id du champ
-                    'value'=> $dest -> getIdExp() -> getNom()
+                    'value'=> $t,
                 ),
                 'options' => array(
                     'label' => 'Destinataire :',   // Label à l'élément
@@ -45,7 +50,7 @@
                'type'=>'textarea'
            ),
            'options' => array(
-               'label' => 'Address',
+               'label' => 'Message : ',
            ),
        ));
             

@@ -37,8 +37,8 @@ class ContactController extends AbstractActionController {
             $em->persist($mess);
             $em->flush();
         }
-
-        $form = new ContactForm($em);
+        $mess = new \Forum\Entity\Message();
+        $form = new ContactForm($em, $mess);
         $viewData['form'] = $form;
         return new ViewModel($viewData);
     }
@@ -49,27 +49,24 @@ class ContactController extends AbstractActionController {
                 ->get('Doctrine\ORM\EntityManager');
         $membre = $em->getRepository('Forum\Entity\Membre')
                 ->find($_SESSION['id']);
-                
-       if (!empty($_POST)){
+
+        if (!empty($_POST)) {
             $mess = new \Forum\Entity\Message();
             $dataForm = $this->getRequest()->getPost();
-            $mess ->setSujetMess($dataForm['sujet']);
-            $mess ->setTexteMess($dataForm['text']);
-            $test=(date("Y-m-d").' '.date("H:i"));                
-            $mess ->setDateMess(new \DateTime($test));
-            $mess ->setIdExp($membre);
+            $mess->setSujetMess($dataForm['sujet']);
+            $mess->setTexteMess($dataForm['text']);
+            $test = (date("Y-m-d") . ' ' . date("H:i"));
+            $mess->setDateMess(new \DateTime($test));
+            $mess->setIdExp($membre);
             $dest = $em->getRepository('Forum\Entity\Membre')
-                ->findOneBy(array('nom' => $dataForm['dest']));
-        
-            $mess ->setIdDest($dest);
+                    ->findOneBy(array('nom' => $dataForm['dest']));
+
+            $mess->setIdDest($dest);
             $em->persist($mess);
             $em->flush();
-            
-                    
-            
         }
-        
-        
+
+
         $viewData['mess'] = $em->getRepository('Forum\Entity\Message')->findBy(array('idDest' => $membre));
         return new ViewModel($viewData);
     }
@@ -83,8 +80,8 @@ class ContactController extends AbstractActionController {
         $id = (int) $this->params()->fromRoute('id', 0);
         $set = $em->getRepository('Forum\Entity\Message')->find($id);
         $viewData['mess'] = $set;
-       
-        $form = new ContactForm($em,$set);
+
+        $form = new ContactForm($em, $set);
         $viewData['form'] = $form;
 
         return new ViewModel($viewData);
