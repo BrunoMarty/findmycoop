@@ -468,8 +468,5 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'Zend\\I18n\\Translator\\Resources' => $vendorDir . '/zendframework/zend-i18n-resources/src/Resources.php',
-<<<<<<< HEAD
     'ZfcAdmin\\Module' => $vendorDir . '/zf-commons/zfc-admin/Module.php',
-=======
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 );

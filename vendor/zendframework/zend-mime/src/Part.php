@@ -38,25 +38,7 @@ class Part
      */
     public function __construct($content = '')
     {
-<<<<<<< HEAD
         $this->setContent($content);
-=======
-<<<<<<< HEAD
-        $this->setContent($content);
-=======
-        if (! is_string($content) && ! is_resource($content)) {
-            throw new Exception\InvalidArgumentException(sprintf(
-                "'%s' must be string or resource",
-                $content
-            ));
-        }
-
-        $this->content = $content;
-        if (is_resource($content)) {
-            $this->isStream = true;
-        }
->>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     }
 
     /**
@@ -273,23 +255,10 @@ class Part
     public function setContent($content)
     {
         if (! is_string($content) && ! is_resource($content)) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
             throw new Exception\InvalidArgumentException(sprintf(
                 'Content must be string or resource; received "%s"',
                 is_object($content) ? get_class($content) : gettype($content)
             ));
-<<<<<<< HEAD
-=======
-=======
-            throw new Exception\InvalidArgumentException(
-                "'%s' must be string or resource",
-                $content
-            );
->>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         }
         $this->content = $content;
         if (is_resource($content)) {

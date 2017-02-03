@@ -46,10 +46,6 @@ strings and returning a `Zend\Mime\Message` instance:
 $message = Zend\Mime\Message::createFromMessage($string, $boundary);
 ```
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 As of version 2.6.1, You may also parse a single-part message by omitting the
 `$boundary` argument:
 
@@ -57,11 +53,6 @@ As of version 2.6.1, You may also parse a single-part message by omitting the
 $message = Zend\Mime\Message::createFromMessage($string);
 ```
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 ## Available methods
 
 `Zend\Mime\Message` contains the following methods:
