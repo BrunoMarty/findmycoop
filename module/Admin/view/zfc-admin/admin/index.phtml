@@ -1,5 +1,5 @@
 <?php
-    $this->headLink()->appendStylesheet('/css/fam-icons.css');
+if($_SESSION['admin']==1){
 ?>
 <div class="container">
     <h2>Accueil</h2>
@@ -13,7 +13,7 @@
   
     <hr />
  
-            <a href="#"><i class="fam-page"></i> Evènements</a>
+            <a href="admin/event"><i class="fam-page"></i> Evènements</a>
      
    
             Gestion des Evènements
@@ -21,7 +21,10 @@
    
     <hr />
 
-            <a href="#"><i class="fam-user"></i> Utilisateurs</a>
+            <a href="admin/membre"><i class="fam-user"></i> Utilisateurs</a>
     
             Gestion des utilisateurs
 </div>
+<?php }
+else { ?>
+<h2>Non Autorisé</h2> <?php } ?>

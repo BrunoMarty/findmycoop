@@ -2,8 +2,9 @@
 $form = $this->form;
 $form->setAttribute('action', $this->url('user'));
 $form->prepare();
-if ($this->escapeHtml($set->getPhoto())) {
-    $photo = "photo" . $this->escapeHtml($set->getIdMembre());
+echo $this->form()->openTag($form);
+if ($set->getPhoto()) {
+    $photo = "photo" . $set->getIdMembre();
 } else {
     $photo = "defaut";
 }
@@ -37,13 +38,13 @@ if ($this->escapeHtml($set->getPhoto())) {
 
     </tr>
     <tr>
-        <th><?php echo $this->formLabel($form->get('prenon')); ?></th>
+        <th><?php echo $this->formLabel($form->get('prenom')); ?></th>
         <td>
             <p>
-<?php echo $this->formInput($form->get('prenon')); ?>
+<?php echo $this->formInput($form->get('prenom')); ?>
 
             </p>
-<?php echo $this->formElementErrors($form->get('prenon'), array('class' => 'error_list')); ?>
+<?php echo $this->formElementErrors($form->get('prenom'), array('class' => 'error_list')); ?>
         </td>
 
     </tr>
@@ -87,8 +88,8 @@ if ($this->escapeHtml($set->getPhoto())) {
             </p>
 
 <?php echo $this->formElementErrors($form->get('ville'), array('class' => 'error_list')); ?>
-            <a href="http://<?php echo $this->escapeHtml($set->getSiteweb())?>"> Site Web </a>
-                <?php echo $this->formSubmit($form->get('edit')); ?>                
+            <a href="http://<?php echo $set->getSiteweb()?>"> Site Web </a>
+                             
         </td>
     </tr>
 

@@ -1,33 +1,67 @@
-<<<<<<< HEAD
- <?php foreach ($bar as  $cat) : 
-     
-     if(empty($cat->getIdParent()))
-         echo $cat -> getNomCat() ; ?> <br>
-    <?php 
-    foreach ($bar as  $cat1):
-    if ($objet = $cat1-> getIdParent()) {
-       if($objet -> getIdCat() == $cat -> getIdCat()){
-        echo $cat1 -> getNomCat(); 
-    ?> 
-         <br>
+<script>
+var toto =0;
+    $(document).ready(function() {
+    $('.cat').click(function() {
+            $("#" + $(this).attr('id') + " ul").slideToggle("slow");
+    });
+  }); 
+		$(document).ready(function() {
+			$('#projet0').click(function() {
+				$('#projets0').slideToggle("slow");
+			});         
+			$("#projet1").click(function() {
+				$("#projets1").slideToggle("slow");
+			});		
+			$("#projet2").click(function() {
+				$("#projets2").slideToggle("slow");
+			});             
+			$("#projet3").click(function() {
+				$("#projets3").slideToggle("slow");
+			});                 
+			$("#projet4").click(function() {
+				$("#projets4").slideToggle("slow");
+			});                 
+			$("#projet5").click(function() {
+				$("#projets5").slideToggle("slow");
+			});
+		});
+
+</script><div id="post">
+<?php
+if ($_SESSION) {
+    ?> <a href="/creatb">Nouveau</a><br><br>
     <?php
-       }
-    }
-  endforeach;
- ?> 
-     <br>            
-=======
+    } ?> <ul> <?php
+foreach ($bar as $key1 => $cat) :
+    if (empty($cat->getIdParent())) {
+        ?><li class="cat" id="projet<?php echo $key1 ?>" ><?php echo $cat->getNomCat(); ?> </li><ul class="ps" id="projets<?php echo $key1; ?>">
+            <?php
+        }
+        foreach ($bar as $key => $cat1):
+            if ($objet = $cat1->getIdParent()) {
+                if ($objet->getIdCat() == $cat->getIdCat()) {
+                    ?><li class="scat"><?php echo $cat1->getNomCat(); ?></li> <?php
+                    foreach ($forum as $post):
+                        if ($cat1->getIdCat() == $post->getIdCat()->getIdCat()) {
+                            ?>  <a href="detailb/<?php echo $post->getIdForum(); ?>" ><article>
+                                             <?php echo $post->getTitreF(); ?>  <?php
+                            ?> <span> <?php echo ' Auteur : ';
+                        echo $post->getIdCreateur()->getNom();
+                            ?>  </span> </article></a><?php
+                    }
 
-<<<<<<< HEAD
- <?php foreach ($bar as $scat) : ?>
-     
-     <p><?php echo $this->escapeHtml($scat->getNomScat());?></p>
-       <p><?php echo $this->escapeHtml($scat->getIdCat());?></p>
-=======
- <?php foreach ($bar as $cat) : ?>
-     
-     <p><?php echo $this->escapeHtml($cat->nameS);?></p>
->>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
+                endforeach;
+                    ?>  <?php
+                    }
+                }
+            endforeach;
+            ?>
 
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
- <?php endforeach; ?>
+        </ul>
+
+
+
+
+
+
+            <?php endforeach; ?></ul></div>

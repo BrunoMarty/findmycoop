@@ -7,14 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Site
  *
-<<<<<<< HEAD
- * @ORM\Table(name="Site")
+ * @ORM\Table(name="BEZIERS_Site_FMC")
  * @ORM\Entity
  */
-=======
-/** @ORM\Table(name="Site") 
- * @ORM\Entity(repositoryClass="Forum\Repository\Repository") */
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 class Site
 {
     /**

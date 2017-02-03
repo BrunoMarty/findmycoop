@@ -8,6 +8,7 @@ class UserForm extends Form {
 
     public function __construct($entityManager, $set) {
 
+
         parent::__construct('User');
         $this->setAttribute('method', 'post');
         $this->add(array(
@@ -28,10 +29,10 @@ class UserForm extends Form {
             ),
         ));
         $this->add(array(
-            'name' => 'prenon', // Nom du champ
+            'name' => 'prenom', // Nom du champ
             'type' => 'Text', // Type du champ
             'attributes' => array(
-                'id' => 'prenon', // Id du champ
+                'id' => 'prenom', // Id du champ
                 'value' => $set->getPrenom(),
             ),
             'options' => array(
@@ -72,6 +73,7 @@ class UserForm extends Form {
                 'label' => 'Email', // Label à l'élément
             ),
         ));
+
         $this->add(array(
             'type' => 'DoctrineModule\Form\Element\ObjectSelect',
             'name' => 'ville',
@@ -79,8 +81,8 @@ class UserForm extends Form {
                 'label' => 'Ville',
                 'object_manager' => $entityManager,
                 'target_class' => 'Forum\Entity\Ville',
-                'property' => 'nomVille'
-            )
+                'property' => 'nomVille',
+),
         ));
 
 
@@ -91,14 +93,6 @@ class UserForm extends Form {
             'attributes' => array(// On va définir quelques attributs
                 'value' => 'Modifier', // comme la valeur
                 'id' => 'submit', // et l'id
-            ),
-        ));
-        $this->add(array(
-            'name' => 'edit', // Nom du champ
-            'type' => 'Submit', // Type du champ
-            'attributes' => array(// On va définir quelques attributs
-                'value' => 'Editer', // comme la valeur
-                'id' => 'edit', // et l'id
             ),
         ));
     }

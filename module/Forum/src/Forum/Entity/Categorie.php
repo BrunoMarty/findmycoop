@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Categorie
  *
- * @ORM\Table(name="Categorie")
+ * @ORM\Table(name="BEZIERS_Categorie_FMC")
  * @ORM\Entity
  */
 class Categorie
@@ -28,7 +28,6 @@ class Categorie
      */
     private $nomCat;
 
-<<<<<<< HEAD
     /**
      * @var integer
      * @ORM\ManyToOne(targetEntity="Categorie")
@@ -36,8 +35,6 @@ class Categorie
      */
     private $idParent;
 
-=======
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     function getIdCat() {
         return $this->idCat;
     }
@@ -46,13 +43,10 @@ class Categorie
         return $this->nomCat;
     }
 
-<<<<<<< HEAD
     function getIdParent() {
         return $this->idParent;
     }
 
-=======
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
     function setIdCat($idCat) {
         $this->idCat = $idCat;
     }
@@ -61,17 +55,14 @@ class Categorie
         $this->nomCat = $nomCat;
     }
 
-<<<<<<< HEAD
     function setIdParent($idParent) {
-        $this->idParent;
+        $this->idParent = $idParent;
     }
 
     public function __toString() 
     {
         return $this->getNom();
     }
-=======
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 
 }
 

@@ -1,45 +1,67 @@
-<<<<<<< HEAD
+<script>
+var toto =0;
+    $(document).ready(function() {
+    $('.cat').click(function() {
+            $("#" + $(this).attr('id') + " ul").slideToggle("slow");
+    });
+  }); 
+		$(document).ready(function() {
+			$('#projet0').click(function() {
+				$('#projets0').slideToggle("slow");
+			});         
+			$("#projet1").click(function() {
+				$("#projets1").slideToggle("slow");
+			});		
+			$("#projet2").click(function() {
+				$("#projets2").slideToggle("slow");
+			});             
+			$("#projet3").click(function() {
+				$("#projets3").slideToggle("slow");
+			});                 
+			$("#projet4").click(function() {
+				$("#projets4").slideToggle("slow");
+			});                 
+			$("#projet5").click(function() {
+				$("#projets5").slideToggle("slow");
+			});
+		});
 
-    <?php foreach ($projet as  $cat) : 
-     
-     if(empty($cat->getIdParent())){
-     echo $cat -> getNomCat();}
- 
-     foreach ($projet as  $cat1):
+</script><div id="post">
+<?php
+if ($_SESSION) {
+    ?> <a class="new" href="/creatp">Nouveau</a><input class="champ" type="text" placeholder="Search..."/><br><br>
+    <?php
+} ?><ul><?php
+foreach ($projet as $key1 => $cat) :
+    if (empty($cat->getIdParent())) {
+        ?><li class="cat" id="projet<?php echo $key1 ?>" ><?php echo $cat->getNomCat(); ?> </li><ul class="ps" id="projets<?php echo $key1; ?>">
+            <?php
+        }
+        foreach ($projet as $key => $cat1):
+            if ($objet = $cat1->getIdParent()) {
+                if ($objet->getIdCat() == $cat->getIdCat()) {
+                    ?><li class="scat"><?php echo $cat1->getNomCat(); ?></li> <?php
+                    foreach ($forum as $post):
+                        if ($cat1->getIdCat() == $post->getIdCat()->getIdCat()) {
+                            ?>  <a href="detailp/<?php echo $post->getIdForum(); ?>" ><article>
+                                             <?php echo $post->getTitreF(); ?>  <?php
+                            ?> <span> <?php echo ' Auteur : ';
+                        echo $post->getIdCreateur()->getNom();
+                            ?>  </span> </article></a><?php
+                    }
+
+                endforeach;
+                    ?>  <?php
+                    }
+                }
+            endforeach;
+            ?>
+
+        </ul>
 
 
 
-    if ($objet = $cat1-> getIdParent()) {
-       if($objet -> getIdCat() == $cat -> getIdCat()){
-        echo $cat1 -> getNomCat();
-       }
-    }
-  endforeach;
- ?>
- 
-     <br>
- 
 
-    
-    
-      
 
- <?php endforeach; ?>
-=======
-<<<<<<< HEAD
- <?php foreach ($projet as $cat) : ?>
-     
-     <p><?php echo $this->escapeHtml($cat->getNomCat());?></p>
-      
 
- <?php endforeach; ?>
-=======
-
- <?php foreach ($projet as $cat) : ?>
-     
-     <p><?php echo $this->escapeHtml($cat->name);?></p>
-
- <?php endforeach; ?>
-
->>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
+            <?php endforeach; ?></ul></div>

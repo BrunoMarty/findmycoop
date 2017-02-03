@@ -1,22 +1,20 @@
-<table class="table">
 
+<div id="membre">
  <?php foreach ($membre as $user) : 
-     if($this->escapeHtml($user->getPhoto())){
-     $photo ="photo".$this->escapeHtml($user->getIdMembre()); 
+     if($user->getPhoto()){
+     $photo ="photo".$user->getIdMembre(); 
      }
      else{
      $photo = "defaut";}?>
-    <tr>
-     <td><?php echo $this->escapeHtml($user->getNom());?></td>
-     <td><?php echo $this->escapeHtml($user->getPrenom());?></td>
-     <td><?php echo $this->escapeHtml($user->getPseudo());?></td>
-     <td><?php echo $this->escapeHtml($user->getAdresse());?></td>
-     <td><?php echo $this->escapeHtml($user->getCodePostal());?></td>
-     <td><?php echo $this->escapeHtml($user->getSiteweb());?></td>
-     <td><img src="img/membre/<?php echo $photo;?>.jpg" alt=""></td>
-     <td><a href="membre/detail/<?php echo $this->escapeHtml($user->getIdMembre()); ?>">Détail</a></td>
-    </tr>
+    <section><a href="membre/detail/<?php echo $user->getIdMembre(); ?>"><article class="col-md-9">
+                <ul><li><?php echo "Nom : ".$user->getNom();?></li>
+     <li><?php echo "Prénom : ".$user->getPrenom();?></li>
+     <li><?php echo "Pseudo : ".$user->getPseudo();?></li></ul><hr>
+                <p><?php echo substr($user->getDescription(),0,80);?></p>
+     </article><article class="col-md-3"><img src="img/membre/<?php echo $photo;?>.jpg" alt="">
+    
+     </article></a></section>
 
  <?php endforeach; ?>
 
-</table>
+</div>

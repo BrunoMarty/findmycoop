@@ -1,94 +1,117 @@
 <?php
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
- 
+
 namespace Forum\Controller;
- 
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
- 
+use Forum\Form\CreatForm;
+use Forum\Form\CreatrForm;
+
 class BarController extends AbstractActionController {
 
-    
-   public function barAction() {
+    public function barAction() {
         $entityManager = $this
-            ->getServiceLocator()
-            ->get('Doctrine\ORM\EntityManager');              
-        return new ViewModel(array(
-<<<<<<< HEAD
-             'bar' => $entityManager->getRepository('Forum\Entity\Categorie')->findAll(),
-=======
-             'bar' => $entityManager->getRepository('Forum\Entity\Souscategorie')->findAll(),
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
-         ));
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
+        if ($this->getRequest()->isPost()) {
+            $projet = new \Forum\Entity\Forum();
+            $dataForm = $this->getRequest()->getPost();
+            $projet->setTexteF($dataForm['texte']);
+            $projet->setTitreF($dataForm['titre']);
+
+            if ($_SESSION) {
+                $membre = $entityManager->getRepository('\Forum\Entity\Membre')->find($_SESSION['id']);
+                $projet->setIdCreateur($membre);
+            }
+            $projet->setCategorie(1);
+            $catP = $entityManager->getRepository('\Forum\Entity\Categorie')->find($dataForm['idparent']);
+            $projet->setIdCat($catP);
+            $idp = $entityManager->getRepository('\Forum\Entity\Forum')->find($dataForm['idp']);
+            $projet->setIdParent($idp);
+
+            $test = (date("Y-m-d") . ' ' . date("H:i"));
+
+            $projet->setDateF(new \DateTime($test));
+
+            $entityManager->persist($projet);
+            $entityManager->flush();
+        }
+        $viewData['bar'] = $entityManager->getRepository('Forum\Entity\Categorie')->findAll();
+        $viewData['forum'] = $entityManager->getRepository('Forum\Entity\Forum')->findBy(array('categorie' => '1', 'idParent' => NULL));
+
+        return new ViewModel($viewData);
     }
- 
-    
-}
-<<<<<<< HEAD
-=======
-=======
-namespace Forum\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+    public function creatbAction() {
+        $entityManager = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
 
-class BarController extends AbstractActionController
-{
-    protected $barTable;
+        if ($this->getRequest()->isPost()) {
+            $projet = new \Forum\Entity\Forum();
+            $dataForm = $this->getRequest()->getPost();
+            $projet->setTexteF($dataForm['texte']);
+            $projet->setTitreF($dataForm['titre']);
+            $catP = $entityManager->getRepository('\Forum\Entity\Categorie')->find($dataForm['idCat']);
+            $projet->setIdCat($catP);
+            $membre = $entityManager->getRepository('\Forum\Entity\Membre')->find($_SESSION['id']);
+            $projet->setIdCreateur($membre);
+            $projet->setCategorie(1);
 
+            $test = (date("Y-m-d") . ' ' . date("H:i"));
 
-    public function setBarTable($bar)
-    {
-    	$this->barTable = $bar;
+            $projet->setDateF(new \DateTime($test));
+
+            $entityManager->persist($projet);
+            $entityManager->flush();
+        }
+
+        $form = new CreatForm($entityManager);
+        $viewData['projet'] = $entityManager->getRepository('Forum\Entity\Categorie')->findBy(array('idParent' => null));
+        $viewData['form'] = $form;
+        return new ViewModel($viewData);
     }
-        public function barAction()
-    {
-           return new ViewModel(array(
-             'bar' => $this->getBarTable()->fetchAll(),
-         ));
+
+    public function creatrAction() {
+        $entityManager = $this
+                ->getServiceLocator()
+                ->get('Doctrine\ORM\EntityManager');
+
+
+
+        $id = (int) $this->params()->fromRoute('id', 0);
+        $set = $entityManager->getRepository('\Forum\Entity\Forum')->find($id);
+        $form = new CreatrForm($entityManager, $set);
+        $viewData['form'] = $form;
+        return new ViewModel($viewData);
     }
-        public function getBarTable()
-     {
-         if (!$this->barTable) {
-             $sm = $this->getServiceLocator();
-             $this->barTable = $sm->get('Forum\Model\BarTable');
-         }
-         return $this->barTable;
-     }
 
-
-    public function listAction()
-    {
-        $id_bar = $this->params()->fromRoute('id', null);
-
-        if (!is_null($id_bar)) {
-            $bar = $this->barTable->getBar($id_bar);
-    
-            return new ViewModel(
-                array(
-                    'bar' => $bar,
-                )
-            );
-        } else {
-            $this->getResponse()->setStatusCode(404);
-            return;
+    public function deletebrAction($id) {
+        if ($_SESSION['admin']) {
+            $em = $this
+                    ->getServiceLocator()
+                    ->get('Doctrine\ORM\EntityManager');
+            $id = (int) $this->params()->fromRoute('id', 0);
+            $post = $em->getRepository('\Forum\Entity\Forum')->find($id);
+            $post1 = $em->getRepository('\Forum\Entity\Forum')->findBy(array('idParent' => $post->getIdForum()));
+            foreach ($post1 as $projet) :
+                $em->remove($projet);
+            endforeach;
+            $em->remove($post);
+            $em->flush();
         }
     }
-    
-    public function addAction()
-    {
+
+    public function deleteeventAction($id) {
+        if ($_SESSION['admin']) {
+            $em = $this
+                    ->getServiceLocator()
+                    ->get('Doctrine\ORM\EntityManager');
+            $id = (int) $this->params()->fromRoute('id', 0);
+            $post = $em->getRepository('\Forum\Entity\Forum')->find($id);
+            $em->remove($post);
+            $em->flush();
+        }
     }
 
-    public function editAction()
-    {
-    }
-
-    public function deleteAction()
-    {
-    }
 }
->>>>>>> 9e597b830b24a7ed49a96571d7cbd3e7c9354bbf
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5

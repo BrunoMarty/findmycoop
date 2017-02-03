@@ -7,11 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Event
  *
- * @ORM\Table(name="Event")
+ * @ORM\Table(name="BEZIERS_Event_FMC")
  * @ORM\Entity
  */
-class Event
-{
+class Event {
+
     /**
      * @var integer
      *
@@ -48,13 +48,9 @@ class Event
 
     function getNomEvent() {
         return $this->nomEvent;
-    }
+        }
 
-<<<<<<< HEAD
     function getDateEvent(): \DateTime {
-=======
-    function getDateEvent() {
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
         return $this->dateEvent;
     }
 
@@ -78,6 +74,4 @@ class Event
         $this->contenuEvent = $contenuEvent;
     }
 
-
 }
-

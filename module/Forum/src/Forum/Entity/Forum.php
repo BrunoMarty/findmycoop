@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Forum
  *
- * @ORM\Table(name="Forum")
+ * @ORM\Table(name="BEZIERS_Forum_FMC")
  * @ORM\Entity
  */
 class Forum
@@ -51,7 +51,6 @@ class Forum
 
     /**
      * @var integer
-<<<<<<< HEAD
      * @ORM\ManyToOne(targetEntity="Categorie")
      * @ORM\JoinColumn(name="ID_Cat", referencedColumnName="ID_Cat", nullable=true)
    
@@ -87,7 +86,7 @@ class Forum
         return $this->texteF;
     }
 
-    function getDateF(): \DateTime {
+    function getDateF() {
         return $this->dateF;
     }
 
@@ -95,8 +94,8 @@ class Forum
         return $this->categorie;
     }
 
-    function getIdScat() {
-        return $this->idScat;
+    function getIdCat() {
+        return $this->idCat;
     }
 
     function getIdCreateur() {
@@ -127,8 +126,8 @@ class Forum
         $this->categorie = $categorie;
     }
 
-    function setIdScat($idScat) {
-        $this->idScat = $idScat;
+    function setIdCat($idcat) {
+        $this->idCat = $idcat;
     }
 
     function setIdCreateur($idCreateur) {
@@ -141,78 +140,4 @@ class Forum
 
 
 }
-=======
-     *
-     * @ORM\Column(name="ID_SCat", type="integer", nullable=false)
-     */
-    private $idScat;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="ID_Createur", type="integer", nullable=false)
-     */
-    private $idCreateur;
-
-
-}
-
-function getIdForum() {
-    return $this->idForum;
-}
-
- function getTitreF() {
-    return $this->titreF;
-}
-
- function getTexteF() {
-    return $this->texteF;
-}
-
- function getDateF(): \DateTime {
-    return $this->dateF;
-}
-
- function getCategorie() {
-    return $this->categorie;
-}
-
- function getIdScat() {
-    return $this->idScat;
-}
-
- function getIdCreateur() {
-    return $this->idCreateur;
-}
-
- function setIdForum($idForum) {
-    $this->idForum = $idForum;
-}
-
- function setTitreF($titreF) {
-    $this->titreF = $titreF;
-}
-
- function setTexteF($texteF) {
-    $this->texteF = $texteF;
-}
-
- function setDateF(\DateTime $dateF) {
-    $this->dateF = $dateF;
-}
-
- function setCategorie($categorie) {
-    $this->categorie = $categorie;
-}
-
- function setIdScat($idScat) {
-    $this->idScat = $idScat;
-}
-
- function setIdCreateur($idCreateur) {
-    $this->idCreateur = $idCreateur;
-}
-
-
->>>>>>> ef836af1c19acf10be67bee3f6905098cd8947c5
 
