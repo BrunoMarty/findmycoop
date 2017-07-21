@@ -28,8 +28,9 @@ Find my coop est un site internet hybride (forum / outil gestion de projet), qui
 
 ## Groupe :  
 
-Marty Bruno
-Duban Rémi
-Morgane Sidobre
+- Duban Rémi
+- Morgane Sidobre
+- Marty Bruno
+
 
 
